@@ -1,0 +1,15 @@
+services:
+  server:
+    image: kingdoms
+    #entrypoint: tail -F anything
+    ports:
+      - "8080:8080"
+    environment:
+      DB_PASS: example
+      DJANGO_SETTINGS_MODULE: conf.settings.dev
+      DJANGO_SECRET_KEY: testkey
+    volumes: 
+      - ./website/build/static/:/app/build/static/
+      - dbdata:/app/mount/
+volumes:
+  dbdata:
