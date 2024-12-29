@@ -26,6 +26,7 @@ def validate_card_exists(cardname):
         raise ValidationError(cardname + " is not a valid card")
 
 class Kingdom(models.Model):
+    id = models.AutoField(primary_key=True)
     name = models.CharField(max_length = 200)
     description = models.TextField(blank=True)
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
@@ -55,6 +56,7 @@ def add_kingdom_metadata(sender, instance, *args, **kwargs):
 
 
 class Rating(models.Model):
+    id = models.AutoField(primary_key=True)
     rating = models.IntegerField()
     kingdom = models.ForeignKey(Kingdom, on_delete=models.CASCADE, related_name='ratings')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -80,6 +82,7 @@ def update_kingdom_score(sender, instance, *args, **kwargs):
         instance.kingdom.save()
 
 class Metric(models.Model):
+    id = models.AutoField(primary_key=True)
     created = models.DateTimeField(auto_now_add=True)
     accounts = models.IntegerField(default=0)
     kingdoms = models.IntegerField(default=0)
