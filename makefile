@@ -18,4 +18,8 @@ run:
 clean:
 	docker container prune -f && docker compose down -v
 
+push-prod: build
+	docker tag kingdoms us.gcr.io/kingdoms-289503/kingdoms
+	docker push us.gcr.io/kingdoms-289503/kingdoms
+
 .PHONY: build run

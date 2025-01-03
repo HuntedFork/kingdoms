@@ -3,13 +3,33 @@ services:
     image: kingdoms
     ports:
       - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
     environment:
-      DB_PASS: example
-      DJANGO_SUPERUSER_PASSWORD: dev
+      DB_PASS: 2GJbU_fsfR7B7hbibe7NJQ
+      DB_NAME: test
+      DB_USER: test
+      DB_HOST: kingdoms-supply-3902.jxf.gcp-us-west2.cockroachlabs.cloud
+      DB_PORT: 26257
       DJANGO_SETTINGS_MODULE: conf.settings.dev
       DJANGO_SECRET_KEY: testkey
+      DJANGO_SUPERUSER_PASSWORD: dev
     volumes: 
       - ./website/build/static/:/app/build/static/
-      - dbdata:/etc/postgresql/15/kingdoms/
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+      POSTGRES_DB: supply
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
 volumes:
-  dbdata:
+  pgdata:
