@@ -15,6 +15,13 @@ shell:
 run:
 	docker compose up
 
+migrate:
+	docker compose run server make migrate
+
+# Use this command to make the server start without starting the server. Useful in combination with shell
+idle:
+	docker compose run server tail -f /dev/null
+
 clean:
 	docker container prune -f && docker compose down -v
 

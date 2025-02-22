@@ -15,8 +15,7 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Card',
             fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(max_length=100, unique=True)),
+                ('name', models.CharField(max_length=100, primary_key=True, serialize=False, unique=True)),
                 ('set', models.CharField(default='', max_length=100)),
                 ('supply', models.BooleanField(default=True)),
                 ('image_name', models.CharField(default='', max_length=100)),

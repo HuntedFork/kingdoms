@@ -86,6 +86,11 @@ REST_FRAMEWORK = {
     ),
 }
 
+# part of a stupid hack to make migrations pack
+MIGRATION_MODULES = {
+    "socialaccount": "api.migrations.migration_overrides.socialaccount"
+}
+
 # REST_AUTH_SERIALIZERS = {
 #     'PASSWORD_RESET_SERIALIZER':
 #         'conf.serializers.PasswordResetSerializer',
