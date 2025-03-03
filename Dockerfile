@@ -26,3 +26,4 @@ EXPOSE 8080
 
 CMD ["gunicorn", "-w2", "conf.wsgi"]
 #CMD ["python", "manage.py", "runserver", "0.0.0.0:8080"]
+
