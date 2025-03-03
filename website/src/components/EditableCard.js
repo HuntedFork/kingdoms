@@ -27,7 +27,6 @@ class EditableCard extends React.Component {
   }
 
   handleEdit = () => {
-    console.log('start editing')
     this.setState({editing: true})
     if (this.state.focusRef) {
       this.state.focusRef.focus()

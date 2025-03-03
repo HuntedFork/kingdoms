@@ -14,7 +14,7 @@ hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
 INTERNAL_IPS = [ip[:-1] + '1' for ip in ips] + ['127.0.0.1', '10.0.2.2']
 ## END
 
-WSGI_APPLICATION = 'conf.wsgi.dev.application'
+WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -28,6 +28,11 @@ DATABASES = {
     }
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
+MAILJET_API_KEY = os.getenv('MAILJET_USERNAME')
+MAILJET_API_SECRET = os.getenv('MAILJET_PASS')
+DEFAULT_FROM_EMAIL = 'noreply@dominionkingdoms.net'
+
+# EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CORS_ORIGIN_ALLOW_ALL = True

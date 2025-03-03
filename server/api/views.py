@@ -29,13 +29,16 @@ class CardViewSet(viewsets.ModelViewSet):
                         name=request.data.get("name"),
                         set=request.data.get("set"),
                         cost=request.data.get('cost', None),
-                        types=request.data.get("types", "").split('|'),
+                        types=request.data.get("types", []),
                         supply=request.data.get("supply", True),
                         landscape=request.data.get("landscape", False),
-                        image_name=request.data.get("image")
+                        image_name=request.data.get("image_name")
                     )
         newCard.save()
         return Response(CardSerializer(newCard).data, status=status.HTTP_201_CREATED)
+    
+    def update(self, request):
+        self.create(request)
 
 class KingdomList(views.APIView):
 

@@ -89,7 +89,7 @@ class KingdomSummary extends React.Component {
     const { user } = this.props.kingdom
     return (
       <span style={{whiteSpace:'nowrap'}}>
-        Created By: <Label style={s.secondaryButton} as="a" href={'/users/' + user} basic>{user}</Label>
+        Author: <Label style={s.secondaryButton} as="a" href={'/users/' + user} basic>{user}</Label>
       </span>
     )
   }

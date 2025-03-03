@@ -74,7 +74,6 @@ class KingdomLayout extends Component {
   }
 
   handleDelete = () => {
-    console.log('lets delete!')
     this.setState({confirmingDelete: true})
   }
 

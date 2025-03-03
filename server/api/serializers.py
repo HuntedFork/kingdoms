@@ -26,6 +26,7 @@ class KingdomSerializer(serializers.ModelSerializer):
         return new_qs
     def to_representation(self, instance):
         data = super(KingdomSerializer, self).to_representation(instance)
+        data['pk'] = str(data['pk'])
         user = self.context.get('user', None)
         if user:
             if hasattr(instance, 'prefetched_ratings'):

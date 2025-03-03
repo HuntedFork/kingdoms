@@ -17,18 +17,20 @@ class SetSymbol extends React.Component {
     switch (set) {
       case "Base":
         return "Dominion2.png"
-      case "Base, 2E":
+      case "Base,2E":
         return "Dominion2.png"
-      case "Base, 1E":
+      case "Base,1E":
         return "Dominion2.png"
       case "Intrigue":
         return "Intrigue2.png"
-      case "Intrigue, 1E":
+      case "Intrigue,1E":
         return "Intrigue1.png"
-      case "Intrigue, 2E":
+      case "Intrigue,2E":
         return "Intrigue2.png"
       case "Dark Ages":
         return "DarkAges.png"
+      case "Rising Sun":
+        return "RisingSun.png"
       default:
         return set + ".png"
     }

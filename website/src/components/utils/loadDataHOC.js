@@ -36,7 +36,8 @@ function loadDataHoc(WrappedComponent, dataFunction){
         }
 
         handleDataReceived = data => {
-          this.setState({data, loading: false })
+          console.log('data received!', data)
+          this.setState({data, loading: false, dataRetrieved:true })
         }
 
         render(){

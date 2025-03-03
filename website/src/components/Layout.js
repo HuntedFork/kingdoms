@@ -63,26 +63,28 @@ class CustomLayout extends React.Component {
 
         <Messages />
 
-        <div>
-          {this.props.children}
-        </div>
+        <div className="PageBody" style={{display:"flex", flexDirection:"column", minHeight:"100vh"}}>
+          <div className="MainContent" style={{flex:1}}>
+            {this.props.children}
+          </div>
 
-        <Segment
-          inverted
-          vertical
-          style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
-        >
-          <Container textAlign="center">
-            <List horizontal inverted divided link size="small">
-              <List.Item as="a" href="/about">
-                About
-              </List.Item>
-              <List.Item as="a" href="/bug">
-                Report a Bug
-              </List.Item>
-            </List>
-          </Container>
-        </Segment>
+          <Segment
+            inverted
+            vertical
+            style={{ margin: "5em 0em 0em", padding: "5em 0em" }}
+          >
+            <Container textAlign="center">
+              <List horizontal inverted divided link size="small">
+                <List.Item as="a" href="/about">
+                  About
+                </List.Item>
+                <List.Item as="a" href="/bug">
+                  Report a Bug
+                </List.Item>
+              </List>
+            </Container>
+          </Segment>
+        </div>
       </div>
     );
   }

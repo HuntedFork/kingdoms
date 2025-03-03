@@ -13,6 +13,7 @@ import BugReport from "./components/pages/BugReport"
 import NotFound from "./components/pages/NotFound"
 import ResetPassword from "./components/pages/ResetPassword"
 import ResetPasswordConfirm from "./components/pages/ResetPasswordConfirm"
+import LoadCards from "./components/pages/LoadCards"
 
 const BaseRouter = () => (
   <Switch>
@@ -26,6 +27,7 @@ const BaseRouter = () => (
     <Route path="/bug" component={BugReport} />
     <Route path="/reset-password/confirm/:uid/:token" component={ResetPasswordConfirm} />
     <Route path="/reset-password" component={ResetPassword} />
+    <Route path="/utility/loadcards" component={LoadCards} />
     <Route exact path="/" component={HomepageLayout} />
     <Route component={NotFound} />
   </Switch>

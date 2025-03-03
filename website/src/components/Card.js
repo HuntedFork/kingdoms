@@ -20,7 +20,7 @@ class Card extends React.Component {
     if (card) {
       src = src + card.image_name
     } else {
-      const placeholder = landscape ? "dominion_back_landscape.jpg" : "dominion_back.jpg"
+      const placeholder = landscape ? "dominion_back_landscape.jpg" : "dominion_back.png"
       src = src + placeholder
     }
     return (

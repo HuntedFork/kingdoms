@@ -5,7 +5,7 @@ import os
 
 DEBUG = False
 ALLOWED_HOSTS += ['localhost', '127.0.0.1', 'dominionkingdoms.net', 'kingdoms-slhr255gcq-uw.a.run.app']
-WSGI_APPLICATION = 'conf.wsgi.prod.application'
+WSGI_APPLICATION = 'conf.wsgi.application'
 
 DATABASES = {
     'default': {

@@ -15,7 +15,10 @@ services:
       DJANGO_SETTINGS_MODULE: conf.settings.dev
       DJANGO_SECRET_KEY: testkey
       DJANGO_SUPERUSER_PASSWORD: dev
-    volumes: 
+      MAILJET_USERNAME: 0ab9ec17e27df142c76e5e8a53c955cd
+      MAILJET_PASS: 5b091e265592b07c18f32ed1daf5e883
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
       - ./website/build/static/:/app/build/static/
   db:
     image: postgres

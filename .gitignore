@@ -20,6 +20,7 @@ node_modules/
 pgdata/
 
 # ignore compiled files
+cards.json
 *.com
 *.class
 *.dll

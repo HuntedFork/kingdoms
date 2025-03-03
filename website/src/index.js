@@ -7,7 +7,6 @@ import store from "./store"
 
 const app = (
   <Provider store={store}>
-    text
     <App />
   </Provider>
 );
