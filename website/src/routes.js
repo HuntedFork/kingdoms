@@ -25,7 +25,7 @@ const BaseRouter = () => (
     <Route path="/browse" component={Browse} />
     <Route path="/about" component={About} />
     <Route path="/bug" component={BugReport} />
-    <Route path="/reset-password/confirm/:uid/:token" component={ResetPasswordConfirm} />
+    <Route path="/password-reset/confirm/:uid/:token" component={ResetPasswordConfirm} />
     <Route path="/reset-password" component={ResetPassword} />
     <Route path="/utility/loadcards" component={LoadCards} />
     <Route exact path="/" component={HomepageLayout} />

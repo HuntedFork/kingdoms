@@ -19,7 +19,7 @@ export const staticAssetUrlCreator = function(url) {
   if (process.env.NODE_ENV === 'development') {
     return process.env.PUBLIC_URL + url
   }
-  return window.location.origin + "/static" + url
+  return window.location.origin + "/media" + url
 }
 
 export const sortFunctionCreator = (compareFunction) => {
