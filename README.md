@@ -12,7 +12,9 @@ Updating for new sets:
 3. Delete the json file
 4. Add your set to SETS in sets.js
 4. Update the SetSymbol component
-4. fin
+4. Deploy
+5. Run the load cards script by going to /utility/loadcards and hit the button
+6. test it worked by making a kingdom with the new card
 
 
 How to do new migrations:

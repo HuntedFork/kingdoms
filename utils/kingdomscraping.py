@@ -2,6 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
+# I did some manual editing after running this. Its not plug and play. Be careful if you overwrite kingdoms.json!
+
 def scrape_recommended_kingdoms(url):
     response = requests.get(url)
     response.raise_for_status()  # raise an error if the request failed
