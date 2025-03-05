@@ -18,6 +18,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
 ]
 
+# Only functional in dev. In prod these are served by nginx
 urlpatterns += static('/media/', document_root=settings.MEDIA_ROOT)
 
 urlpatterns.append(re_path(r'^.*', TemplateView.as_view(template_name='index.html')))

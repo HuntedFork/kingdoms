@@ -3,6 +3,7 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 SECRET_KEY = os.getenv('DJANGO_SECRET_KEY')
 ALLOWED_HOSTS = []
+CSRF_TRUSTED_ORIGINS = []
 
 INSTALLED_APPS = [
     'django.contrib.admin',
