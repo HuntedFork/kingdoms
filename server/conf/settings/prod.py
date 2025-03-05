@@ -30,11 +30,9 @@ AUTH_PASSWORD_VALIDATORS = [
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-
-EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
-MAILJET_API_KEY = os.getenv('MAILJET_USERNAME')
-MAILJET_API_SECRET = os.getenv('MAILJET_PASS')
+EMAIL_BACKEND = "anymail.backends.mailjet.EmailBackend"
+ANYMAIL = {
+    "MAILJET_API_KEY": os.getenv('MAILJET_USERNAME'),
+    "MAILJET_SECRET_KEY": os.getenv('MAILJET_PASS'),
+}
 DEFAULT_FROM_EMAIL = 'noreply@dominionkingdoms.net'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False

@@ -28,11 +28,6 @@ DATABASES = {
     }
 }
 
-# EMAIL_BACKEND = 'django_mailjet.backends.MailjetBackend'
-# MAILJET_API_KEY = os.getenv('MAILJET_USERNAME')
-# MAILJET_API_SECRET = os.getenv('MAILJET_PASS')
-# DEFAULT_FROM_EMAIL = 'noreply@dominionkingdoms.net'
-
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 CORS_ORIGIN_ALLOW_ALL = True
