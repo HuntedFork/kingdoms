@@ -44,7 +44,7 @@ class LoadCards extends Component {
 
   render() {
     const cards = CARDS;
-    const cardTimeoutDelayMillis = 200;
+    const cardTimeoutDelayMillis = 100;
 
     const processNext = () => {
       if (this.state.index == this.state.total) {

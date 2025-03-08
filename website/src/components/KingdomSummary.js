@@ -39,7 +39,7 @@ class KingdomSummary extends React.Component {
   renderTitle = () => {
     const link = "/kingdom/" + this.props.kingdom.pk
     return (
-      <div>
+      <div style={{minWidth: '50%', flex: 1}}>
         <Header
           style={{
             overflow:"hidden",
@@ -100,7 +100,7 @@ class KingdomSummary extends React.Component {
         <Segment raised padded>
           <div style={{display: 'flex', justifyContent: 'space-between'}}>
               {this.renderTitle()}
-                <div >
+                <div style={{flex: "0 0 auto"}}>
                   {this.renderUser()}
                   {this.renderExpandButton()}
                 </div>

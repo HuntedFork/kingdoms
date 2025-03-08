@@ -7,16 +7,14 @@ services:
       db:
         condition: service_healthy
     environment:
-      DB_PASS: 2GJbU_fsfR7B7hbibe7NJQ
-      DB_NAME: test
-      DB_USER: test
-      DB_HOST: kingdoms-supply-3902.jxf.gcp-us-west2.cockroachlabs.cloud
-      DB_PORT: 26257
-      DJANGO_SETTINGS_MODULE: conf.settings.prod
+      DB_PASS: example
+      DB_NAME: supply
+      DB_USER: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DJANGO_SETTINGS_MODULE: conf.settings.dev
       DJANGO_SECRET_KEY: testkey
       DJANGO_SUPERUSER_PASSWORD: dev
-      MAILJET_USERNAME: ac93bc999df2a520c17f86dd773a1073
-      MAILJET_PASS: 0c7f6114558624b9e57c6589858b5c2a
     command: python manage.py runserver 0.0.0.0:8080
     volumes:
       - ./website/build/:/app/build/

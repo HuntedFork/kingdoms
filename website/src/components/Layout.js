@@ -81,6 +81,9 @@ class CustomLayout extends React.Component {
                 <List.Item as="a" href="/bug">
                   Report a Bug
                 </List.Item>
+                <List.Item as="a" href="/support">
+                Support
+              </List.Item>
               </List>
             </Container>
           </Segment>

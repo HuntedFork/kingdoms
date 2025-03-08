@@ -51,7 +51,7 @@ class KingdomList extends React.Component {
   kingdomsInSearch = () => {
     const compareFuncs = {
       name: (x,y) => {return x.name > y.name},
-      rating: (x,y) => {return x.rating < y.rating},
+      rating: (x,y) => {return x.rating == undefined && (y.rating !== undefined || x.rating > y.rating);},
       created: (x,y) => {return x.created < y.created},
     }
     if (!this.props.kingdoms) {

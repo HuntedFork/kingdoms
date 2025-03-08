@@ -14,6 +14,7 @@ import NotFound from "./components/pages/NotFound"
 import ResetPassword from "./components/pages/ResetPassword"
 import ResetPasswordConfirm from "./components/pages/ResetPasswordConfirm"
 import LoadCards from "./components/pages/LoadCards"
+import Support from "./components/pages/Support"
 
 const BaseRouter = () => (
   <Switch>
@@ -28,6 +29,7 @@ const BaseRouter = () => (
     <Route path="/password-reset/confirm/:uid/:token" component={ResetPasswordConfirm} />
     <Route path="/reset-password" component={ResetPassword} />
     <Route path="/utility/loadcards" component={LoadCards} />
+    <Route path="/support" component={Support} />
     <Route exact path="/" component={HomepageLayout} />
     <Route component={NotFound} />
   </Switch>

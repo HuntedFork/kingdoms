@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { Redirect } from "react-router-dom";
 
 import EditableKingdom from "../EditableKingdom"
+import { Container } from "semantic-ui-react";
 
 class CreateLayout extends Component {
   state = {
@@ -22,11 +23,13 @@ class CreateLayout extends Component {
      return (<Redirect to="/login" />)
    }
    return (
-     <div style={{marginTop: 50, overflow: "auto"}}>
+     <div style={{marginTop: 80, overflow: "auto"}}>
+      <Container>
          <EditableKingdom
            onSave={newKingdom=>this.setState({created:newKingdom.pk})}
           />
           {this.renderRedirect()}
+        </Container>
       </div>
    )
  }
