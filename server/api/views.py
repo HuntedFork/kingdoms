@@ -4,6 +4,8 @@ from rest_framework.response import Response
 from rest_framework.decorators import action, api_view
 from django.core.exceptions import ValidationError
 from django.core.cache import cache
+import logging
+logger = logging.getLogger(__name__)
 
 from django.contrib.auth.models import User
 from .serializers import CardSerializer, KingdomSerializer, MetricSerializer
@@ -84,6 +86,7 @@ class KingdomList(views.APIView):
         except ValidationError as e:
             return Response(str(e), status=status.HTTP_400_BAD_REQUEST)
         newKingdom.save()
+        metric_checkpoint()
         return Response(KingdomSerializer(newKingdom).data, status=status.HTTP_201_CREATED)
 
 class KingdomDetail(generics.GenericAPIView):
@@ -137,10 +140,23 @@ def RateKingdom(request, pk):
     userRating.save()
     kingdom = Kingdom.objects.get(pk=pk) # Need to refresh score after rating change.
     context = {'user': request.user}
+    metric_checkpoint()
     return Response(KingdomSerializer(kingdom, context=context).data, status=status.HTTP_200_OK)
+
+def metric_checkpoint():
+        # triggering metrics can be tricky in a world where the docker container is down when we try to hit the endpoint
+        # Attach metric recording to something natural to get metrics to come out 
+        try:
+            record_custom_metrics()
+        except Exception as e:
+            logger.exception("New Relic is borked?")
+
 
 @api_view(http_method_names=['POST'])
 def RecordMetrics(request):
+    return record_custom_metrics(request)
+
+def record_custom_metrics(request=None):
     metrics = Metric(
                         accounts=User.objects.count(),
                         kingdoms=Kingdom.objects.count(),

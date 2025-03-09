@@ -10,5 +10,5 @@ urlpatterns = [
     path('kingdoms/', views.KingdomList.as_view()),
     path('kingdoms/<int:pk>/', views.KingdomDetail.as_view()),
     path('kingdoms/<int:pk>/rate/', views.RateKingdom),
-    path('metrics/create/', views.RecordMetrics)
+    path('metrics/create/', views.RecordMetrics, name='record_metrics')
 ]
