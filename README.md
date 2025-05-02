@@ -8,7 +8,26 @@ Which piles of 10 cards you use is very impactful on how the game plays, and a '
 
 You can try the game out for free at [dominion.games](dominion.games)
 
+## What technology is this using?
 
+* Nginx webserver
+* Application Server is written in Django
+* Authentication is managed by Django-allauth
+* I use a mailjet integration for password resets/email confirmations.
+* Postgres database backend hosted by Cockroach db
+* Deployed as a GCP cloud run container. Scales to 0 when not in use. (If the website takes a few seconds to load at first that's whats happening.)
+* New Relic monitoring of server/page/db error rates. Also usage rates.
+* Single Page Web Application written in React
+* Uses redux for small amounts of global state management
+* Token based authentication
+* Django admin page allows gui method of managing users
+
+Please keep in mind that this is a solo developer project. Here are some problems I decided not to fix in order to ship more features:
+* Test Coverage. (If I was more familiar with the tech I could have done some TDD to make my life easier, but I was learning a lot)
+* Style Guide enforcement
+* Typescript and python type hints were added later in development and their usage is not universal. 
+* Deploys are currently a 2 button process. Would love continuous integration instead.
+* I switched to functional react components midway through development. Class vs function components is inconsistent.
 
 
 ### Tips for Myself 

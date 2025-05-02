@@ -5,7 +5,10 @@ import { connect } from "react-redux";
 import { Input, Icon, TextArea, Form, Header, Button, Checkbox, Confirm } from "semantic-ui-react";
 import { updateKingdom, createKingdom } from "../actions/kingdoms"
 import { addError, addStatus } from "../actions/redux/messages"
+import ImportModal from "./ImportModal";
 import Supply from "./Supply"
+import CARDS from "../cards.js"
+
 
 import { styles as s } from "../styles/styles"
 
@@ -25,7 +28,8 @@ class EditableKingdom extends React.Component {
     prosperity: false,
     saving: false,
     changed: false,
-    confirmingCancel: false
+    confirmingCancel: false,
+    importing: false
   };
 
   componentDidMount() {
@@ -90,6 +94,35 @@ class EditableKingdom extends React.Component {
           this.setState({saving: false})
         })
     }
+  }
+
+  importKingdom = (text) => {
+    //Split the cards and trim extra white space
+    let strings = text.split(/[\n,]+/).map(card => card.trim())
+    let newSupply = []
+    let newLandscapes = []
+    strings.filter(str => str !== "").forEach(string => {
+      const match = CARDS.find(card => card.name.toLowerCase().startsWith(string.toLowerCase()))
+      if (match == undefined) {
+        this.props.addError("Could not find card name: ", string)
+      } else {
+        if (match.landscape) {
+          newLandscapes.push(match)
+        } else {
+          newSupply.push(match)
+        }
+      }
+    });
+
+    //Make sure there are not too many cards
+    newSupply.length = Math.min(newSupply.length, 10)
+    newLandscapes.length = Math.min(newLandscapes.length, 2)
+    this.setState({
+      supply: newSupply,
+      landscapes: newLandscapes,
+      changed: true,
+      importing: false
+    })
   }
 
   handleCreated = newKingdom => {
@@ -190,6 +223,16 @@ class EditableKingdom extends React.Component {
     )
   }
 
+  renderImportModal = () => {
+    return (
+      <ImportModal
+        open={this.state.importing}
+        onSubmit={this.importKingdom}
+        onCancel={()=>this.setState({importing:false})}
+      />
+    )
+  }
+
   render() {
     return (
       <div style={{maxWidth: 1000}}>
@@ -200,6 +243,7 @@ class EditableKingdom extends React.Component {
         /> */}
         {this.renderKingdomHeader()}
         {this.renderSupplyOptions()}
+        {this.renderImportModal()}
         <br />
         {'  (Cards will be sorted by cost after you save)'}
         <Supply
@@ -209,6 +253,13 @@ class EditableKingdom extends React.Component {
           onSupplyChange={supply=>{this.setState({supply, changed: true})}}
           onLandscapeChange={landscapes=>{this.setState({landscapes, changed: true})}}
         />
+        <Button
+          secondary
+          disabled={this.state.saving || this.state.importing}
+          onClick={()=>this.setState({importing: true})}
+        >
+          Import
+        </Button>
         <Button
           primary
           loading={this.state.saving}

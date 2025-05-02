@@ -41,6 +41,12 @@ class SetSymbol extends React.Component {
         return "Seaside.png"
       case "Seaside,2E":
         return "Seaside.png"
+      case "Cornucopia & Guilds":
+        return "Cornucopia.png"
+      case "Cornucopia & Guilds,1E":
+        return "Cornucopia.png"
+      case "Cornucopia & Guilds,2E":
+        return "Cornucopia.png"
       case "Rising Sun":
         return "RisingSun.png"
       default:
