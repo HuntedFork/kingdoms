@@ -1,3 +1,17 @@
+# What is this?
+The repository for the public dominionkingdoms.net. A place to build, store, and discover new kingdoms to play in dominion.
+
+## What is dominion? What is a kingdom?
+Dominion is a board game by Donald X. Vaccarino. Inside a box of dominion is many different piles of cards. You play the game by choosing ten different piles and putting them in the center of the table, then taking turns purchasing cards until enough piles run out. 
+
+Which piles of 10 cards you use is very impactful on how the game plays, and a 'kingdom' is a complete set of 10 cards.
+
+You can try the game out for free at [dominion.games](dominion.games)
+
+
+
+
+### Tips for Myself 
 
 How to run migrations:
 I never got the gcp container working so here's what I do:
