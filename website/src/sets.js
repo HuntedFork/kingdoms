@@ -1,3 +1,33 @@
-export const SETS = ["Base","Base,1E","Base,2E","Intrigue","Intrigue,1E","Intrigue,2E","Adventures", "Alchemy", "Allies", "Cornucopia", "Dark Ages", "Empires", "Guilds", "Hinterlands", "Menagerie", "Nocturne", "Plunder", "Promo", "Prosperity", "Renaissance", "Rising Sun", "Seaside"]
+export const SETS = [
+    "Adventures",
+    "Alchemy",
+    "Allies",
+    "Base",
+    "Base,1E",
+    "Base,2E",
+    "Cornucopia & Guilds",
+    "Cornucopia & Guilds,1E",
+    "Cornucopia & Guilds,2E",
+    "Dark Ages",
+    "Empires",
+    "Hinterlands",
+    "Hinterlands,1E",
+    "Hinterlands,2E",
+    "Intrigue",
+    "Intrigue,1E",
+    "Intrigue,2E",
+    "Menagerie",
+    "Nocturne",
+    "Plunder",
+    "Promo",
+    "Prosperity",
+    "Prosperity,1E",
+    "Prosperity,2E",
+    "Renaissance",
+    "Rising Sun",
+    "Seaside",
+    "Seaside,1E",
+    "Seaside,2E"
+  ];
 
 export default SETS;

@@ -26,7 +26,6 @@ class HomepageLayout extends Component {
   }
 
  render() {
-  console.log('rendering!', this.props)
    if (this.props.anonymous) {
      return (<Redirect to="/browse" />)
    }
