@@ -1,0 +1,36 @@
+services:
+  server:
+    image: kingdoms
+    ports:
+      - "8080:8080"
+    depends_on:
+      db:
+        condition: service_healthy
+    environment:
+      DB_PASS: example
+      DB_NAME: supply
+      DB_USER: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DJANGO_SETTINGS_MODULE: conf.settings.dev
+      DJANGO_SECRET_KEY: testkey
+      DJANGO_SUPERUSER_PASSWORD: dev
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - ./website/build/:/app/build/
+  db:
+    image: postgres
+    restart: always
+    environment:
+      POSTGRES_PASSWORD: example
+      POSTGRES_USER: postgres
+      POSTGRES_DB: supply
+    volumes:
+      - pgdata:/var/lib/postgresql/data 
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 1s
+      timeout: 5s
+      retries: 10
+volumes:
+  pgdata:
